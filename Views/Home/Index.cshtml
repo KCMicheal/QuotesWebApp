@@ -1,10 +1,12 @@
 ﻿@model IEnumerable<QuotesWebApp.Models.QuotesViewModel>
 @{
     ViewData["Title"] = "Home Page";
+    Random random = new Random();
+    var nextQuote = random.Next(0, Model.Count());
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
+    <h1 class="display-4">Welcome to the Shinobi Quotes</h1>
 
     @foreach (var item in Model)
     {
