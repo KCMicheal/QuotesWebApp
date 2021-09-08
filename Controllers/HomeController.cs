@@ -20,21 +20,22 @@ namespace QuotesWebApp.Controllers
 
         public IActionResult Index()
         {
-            var quotes = new List<QuotesViewModel>();
-            quotes.Add(new QuotesViewModel { Author = "Maadara Uchiha", Quotes = "“The longer you live… The more you realize that reality is just made of pain, suffering and emptiness.”" });
-            quotes.Add(new QuotesViewModel { Author = "Nagato Pain", Quotes = "“If you don’t share someone’s pain, you can never understand them.”" });
-            quotes.Add(new QuotesViewModel { Author = "Itachi Uchiha", Quotes = "“Even the strongest of opponents always has a weakness.”" });
-            
-            return View(quotes);
+            return View();
         }
-
+        [HttpGet]
         public IActionResult AddShinobiQuoteForm()
         {
             return View();
         }
+        [HttpPost]
         public IActionResult AddShinobiQuoteForm(QuotesViewModel model)
         {
-            return View();
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+            Datastore.Quotes.Add(model);
+            return RedirectToAction("Index", Datastore.GetRandomQuotes());
         }
         public IActionResult Privacy()
         {

@@ -1,0 +1,26 @@
+﻿@model QuotesWebApp.Models.QuotesViewModel;
+@{
+    ViewData["Title"] = "AddShinobiQuote";
+}
+<div class="text-center justify-content-center align-content-center">
+    <form asp-action="AddShinobiQuoteForm" method="post">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label text-left">Shinobi's Name</label>
+            <input class="form-control" asp-for="Author">
+        </div> 
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label text-left">Shinobi's Picture Link</label>
+            <input class="form-control" asp-for="ImageLink">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label text-left">Shinobi's Quote'</label>
+            <textarea type="text" class="form-control" id="example" asp-for="Quotes"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+@*@section  {
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+}*@
